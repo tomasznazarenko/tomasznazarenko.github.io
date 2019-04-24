@@ -1,1 +1,1 @@
-# tomasznazarenko.github.io
+All of the content on this site is made available at no charge, for the benefit of the community. Please don’t reproduce the entire content (or very substantial portions) of any article without asking first.
