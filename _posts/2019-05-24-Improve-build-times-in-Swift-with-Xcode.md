@@ -2,10 +2,10 @@
 title: "Improve build times in Swift with Xcode"
 excerpt_separator: "<!--more-->"
 categories:
-  - software engineering
+  - software-engineering
 tags:
   - xcode
-  - xcode project setup
+  - xcode-project-setup
   - swift
 ---
 
@@ -14,6 +14,8 @@ While sipping refreshment, I glanced at the activity view bar as Xcode was build
 As I was coding a new feature, I needed fast feedback from the compiler. With the subsequent builds, seconds added up to minutes. The sluggishness was derailing my workflow.
 
 Quick builds guarantee we use our time and money efficiently, they prevent distractions and make the work a pleasure. Test Driven Development requires quick builds. Rapid builds save time and sanity when running tests again and again. I imagined compilation times not in minutes but in seconds. How would that speed up my work and increase our team response to bugs?
+
+## Profiling
 
 Xcode gives a way to find code lagging the compiler. Here's how profile your app.
 
@@ -26,9 +28,9 @@ Experiment with the `100` argument. If compiler goes beyond the specified millis
 
 * Use Build Time Analyzer. It is a macOS app that shows you a break down of Swift build times.  [Build Time Analyzer for Swift](https://github.com/RobertGummesson/BuildTimeAnalyzer-for-Xcode)
 
-How to improve build times?
+## Improving
 
-The easiest way:
+How to improve build times? The easiest way:
 * Use explicit types for complex properties. You save the time for the compiler to figure out the type. And you save your colleagues time on figuring out the type of the property.
 * Provide types in complex closures.
 
@@ -37,15 +39,17 @@ The easiest way:
 * Dependencies within a module are per-file. Dependencies across targets are for the entire target.
 
 * Incremental Builds are file-based. Unrelated changes outside function bodies can still result in rebuilding. If you change the function bodies then other files won't be recompiled, as changes in function bodies do not affect the file's **interface**.
-* Limit your objective-C/Swift **interface**. Keep your generated header minimal. User private when possible:
-	*  `IBOutlet private` and `IBAction private`.
-	* Methods exposed to Objective-C `@objc private` like `#selector`. Or you can switch to block based APIs, which may cleanup your code, because you can implicitly capture your state, rather to carry it along in a context object.
+* Limit your objective-C/Swift **interface**. Keep your generated header minimal. User `private` when possible:
+	* Make `IBOutlet private` and `IBAction private`.
+	* Make methods exposed to Objective-C `@objc private`. Or you can switch to block based APIs, which may additionally cleanup your code.
 	
 Depending on your project and your needs, your can do more. Be sure to watch:
 * [Building Faster in Xcode - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/408)
 * [Behind the Scenes of the Xcode Build Process - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/415)
 
-Other sources:
+## Sources:
+* [Building Faster in Xcode - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/408)
+* [Behind the Scenes of the Xcode Build Process - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/415)
 * [Speed up Swift compile time – Hacker Noon](https://hackernoon.com/speed-up-swift-compile-time-6f62d86f85e6)
 * [Measuring compile times in Xcode 9](https://www.jessesquires.com/blog/measuring-compile-times-xcode9/)
 * [Improving Your Build Time in Xcode 10 · Patrick Balestra](https://patrickbalestra.com/blog/2018/08/27/improving-your-build-time-in-xcode-10.html)
