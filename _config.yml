@@ -16,13 +16,18 @@
 title: Tomasz Nazarenko Blog
 email: tomnazarenko@icloud.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Tomasz Nazarenko Blog. iOS Developer. Software engineer.
+  Articles on software development, Swift, iOS Develepment and team work in the business context.
 twitter_username: tomasznazarenko
 github_username: tomasznazarenko
 minimal_mistakes_skin: default
 search: true
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "UA-140849999-1"
+    anonymize_ip: false # default
 
 # Build settings
 markdown: kramdown
@@ -123,32 +128,3 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-
-
-# Jekyll Tutorial Config
-# collections:
-#   authors:
-#     output: true
-#
-# defaults:
-#   - scope:
-#       path: ""
-#       type: "authors"
-#     values:
-#       layout: "author"
-#   - scope:
-#       path: ""
-#       type: "posts"
-#     values:
-#       layout: "post"
-#   - scope:
-#       path: ""
-#     values:
-#       layout: "default"
-#
-# plugins:
-#   - jekyll-feed
-#   - jekyll-sitemap
-#   - jekyll-seo-tag
-#
-# theme: minimal-mistakes-jekyll
