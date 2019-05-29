@@ -5,6 +5,31 @@
 $intro-transition  : none;
 $global-transition : none;
 
+/* brands */
+$behance-color: #898c8f !default;
+$bitbucket-color: #898c8f !default;
+$dribbble-color: #898c8f !default;
+$facebook-color: #898c8f !default;
+$flickr-color: #ff0084 !default;
+$foursquare-color: #0072b1 !default;
+$github-color: #898c8f !default;
+$gitlab-color: #898c8f !default;
+$instagram-color: #898c8f !default;
+$lastfm-color: #d51007 !default;
+$linkedin-color: #898c8f !default;
+$mastodon-color: #2b90d9 !default;
+$pinterest-color: #cb2027 !default;
+$reddit-color: #898c8f !default;
+$rss-color: #898c8f !default;
+$soundcloud-color: #ff3300 !default;
+$stackoverflow-color: #898c8f !default;
+$tumblr-color: #32506d !default;
+$twitter-color: #898c8f !default;
+$vimeo-color: #1ab7ea !default;
+$vine-color: #00bf8f !default;
+$youtube-color: #898c8f !default;
+$xing-color: #006567 !default;
+
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
