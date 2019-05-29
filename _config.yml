@@ -23,6 +23,9 @@ github_username: tomasznazarenko
 minimal_mistakes_skin: default
 search: true
 
+google_site_verification: "aRbmIww9BESUNEOdC5Cj_qkk2zp9D3Nc5ikDkfNgqtE"
+bing_site_verification: "AD084857EE307EF7566C88306D4E8DCF"
+
 analytics:
   provider: "google-gtag"
   google:
