@@ -26,6 +26,7 @@ search: true
 google_site_verification: "aRbmIww9BESUNEOdC5Cj_qkk2zp9D3Nc5ikDkfNgqtE"
 bing_site_verification: "AD084857EE307EF7566C88306D4E8DCF"
 yandex_site_verification: "d08711cfd0ec98cc"
+naver_site_verification: "d1fe7fc5a14e4e75e7571d1b824ef60f721bcd3f"
 
 analytics:
   provider: "google-gtag"
