@@ -16,7 +16,7 @@ Rarely someone who worked on a 16:10 ratio computer would like to get back to 16
 
 If more companies were buying the 16:10 displays, may that would pressure manufacturers to deliver more suited displays for work.
 
-If you ever consider ordering a monitor think about 16:10 model. Here is what to consider when using the display with OSX:
+If you intend to buy a monitor consider 16:10 model. Here is what to think of when using the display with OSX:
 
 First, there are models that do not have anti-flicker technology. After prolonged use, they cause a headache.
 
