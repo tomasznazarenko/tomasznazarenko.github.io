@@ -1,5 +1,5 @@
 ---
-title: "singletons, Singletons and Ambient Context"
+title: "singletons Singletons Ambient Context"
 categories:
   - software-engineering
 tags:
