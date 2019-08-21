@@ -16,9 +16,11 @@ We read code looking for concepts in it, and to reason easily about them. Readin
 
 The structure usually looks like this:
 
+```
 Heading
   Subheading
     Body
+```
 
 Therefore, what disrupts reading is an unusual text flow. For example:
 
