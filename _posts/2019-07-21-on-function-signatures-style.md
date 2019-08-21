@@ -4,7 +4,8 @@ excerpt_separator: "<!--more-->"
 categories:
   - software-engineering
 tags:
-  - quality, team
+  - quality
+  - team
 ---
 
 Teams have to agree on coding style. Developers have discussed naming and styling functions on the Internet and in the books. I am sure you hold your preferences. Yet, having studied linguistics as a hobby for a short time, and just as an avid book reader, I offer you a perspective that may help you write more readable code, allowing your future self and your colleagues find and grasp your code quicker.
