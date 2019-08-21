@@ -28,7 +28,7 @@ func mixedHeadingWithSubheading(one: Int,
 
 // or
 
-func unuxualTextFlow(one: Int, 
+func unusualTextFlow(one: Int, 
                      two: Int) {}
 
 ```
