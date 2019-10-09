@@ -6,9 +6,7 @@ tags:
   - swiftUI
 ---
 
-# SwiftUI notes
-
-This post will be updated on regular basis.
+I am updating this post on regular basis. I'm sharing these notes as I am learning SwiftUI framework.
 
 ## Terms
 
