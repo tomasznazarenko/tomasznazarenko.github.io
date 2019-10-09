@@ -24,7 +24,7 @@ I am updating this post on regular basis. I'm sharing these notes as I am learni
 
 `ContentView.swift` contains the initial user interface (UI) for your program.
 
-`SceneDelegate.swift` - contains code for launching one window in your app. This doesn’t do much on iPhone, but on iPad – where users can have multiple instances of your app open at the same time – this is important.
+`SceneDelegate.swift` contains code for launching one window in your app. This doesn’t do much on iPhone, but on iPad – where users can have multiple instances of your app open at the same time – this is important.
 
 In Project Navigator the yellow group `Preview Content` , with `Preview Assets.xcassets` inside is another asset catalog, this time specifically for example images you want to use when you’re designing your user interfaces, to give you an idea of how they might look when the program is running.
 
