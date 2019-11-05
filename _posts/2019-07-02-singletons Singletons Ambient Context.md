@@ -4,27 +4,26 @@ categories:
   - software-engineering
 tags:
   - swift
-  - architecture
 ---
 Here are three types of singletons. Can you spot the difference? How would you name the patterns? What are their benefits and risks?
 
 ```swift
 class ExampleOne {
-	static let shared = ExampleOne()
+    static let shared = ExampleOne()
 
-	private init {}
+    private init {}
 }
 ```
 
 ```swift
 class ExampleTwo {
-	static let shared = ExampleTwo()
+    static let shared = ExampleTwo()
 }
 ```
 
 ```swift
 class ExampleThree {
-	static var sharedInstance = ExampleThree()
+    static var sharedInstance = ExampleThree()
 }
 ```
 
@@ -46,6 +45,7 @@ Examples of bad Singleton candidates are the objects not mandatory for a system 
 
 Singletons may damage our system design and testability if we access the concrete singleton instance directly. To escape the tight coupling we can use dependency inversion. By hiding the third-party dependency behind an interface we can keep the app modules agnostic about the implementation details.
 
-## Sources:
+## Sources
+
 * [Singleton pattern - Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)
 * [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.goodreads.com/book/show/85009.Design_Patterns)
