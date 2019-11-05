@@ -5,7 +5,6 @@ categories:
   - software-engineering
 tags:
   - xcode
-  - tools
 ---
 
 While sipping refreshment, I glanced at the activity view bar as Xcode was building project. I saw that until compilation  finishes I will gulp another glass. Was the size of the code base stretching the compiler limits? Why the Xcode got stuck at indexing?
