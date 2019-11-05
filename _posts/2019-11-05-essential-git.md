@@ -2,7 +2,7 @@
 title: "Essential Git"
 excerpt_separator: "<!--more-->"
 categories:
-  - beginners
+  - team
 tags:
   - git
 ---
