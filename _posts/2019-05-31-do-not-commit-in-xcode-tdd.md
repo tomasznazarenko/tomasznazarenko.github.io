@@ -10,6 +10,6 @@ Executing Git `commit` command is one of the sometimes overlooked Xcode features
 
 Where it shines is during test driven development, enabling quick commits after each incremental change in the tests or the production code. You can exclude commented code or unfinished ideas, and focus on committing just the code you want now to keep in the repository. All this without switching back and forth to a terminal or source control tool.
 
-## Sources
+## References
 
 * [Source Control Workflows in Xcode - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/418/)
