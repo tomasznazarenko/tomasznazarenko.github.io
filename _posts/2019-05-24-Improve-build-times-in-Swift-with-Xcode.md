@@ -7,15 +7,15 @@ tags:
   - xcode
 ---
 
-While sipping refreshment, I glanced at the activity view bar as Xcode was building project. I saw that until compilation  finishes I will gulp another glass. Was the size of the code base stretching the compiler limits? Why the Xcode got stuck at indexing?
+When coding, I like to get compiler feedback fast. With the subsequent builds seconds can add up to minutes. The sluggishness can derail my focus and workflow.
 
-As I was coding a new feature, I needed fast feedback from the compiler. With the subsequent builds, seconds added up to minutes. The sluggishness was derailing my workflow.
+While gulping a drink, I glanced at the activity view bar as Xcode was building project. I saw that until compilation finishes I will sip another glass. It was slow. Was the size of the code base stretching the compiler limits?
 
-Quick builds guarantee we use our time and money efficiently, they prevent distractions and make the work a pleasure. Test Driven Development requires quick builds. Rapid builds save time and sanity when running tests again and again. I imagined compilation times not in minutes but in seconds. How would that speed up my work and increase our team response to bugs?
+Quick builds contain distractions and make the work a pleasure. TDD requires rapid builds. They save time and sanity when running tests again and again. Compilation times should be in seconds. Can that speed our work and increase our response to bugs? Ofcourse.
 
 ## Profiling
 
-Xcode gives a way to find code lagging the compiler. Here's how profile your app.
+Xcode gives a way to find code lagging the compiler. Here's how.
 
 In project `Build Settings` under `Swift-Compiler - Custom Flags`, `Other Swift Flags` add:
 
@@ -23,7 +23,7 @@ In project `Build Settings` under `Swift-Compiler - Custom Flags`, `Other Swift 
 * `-Xfrontend -warn-long-function-bodies=300` ([apple/swift GitHub](https://github.com/apple/swift/commit/18c75928639acf0ccf0e1fb6729eea75bc09cbd5))
 * `-Xfrontend -debug-time-function-bodies`
 
-Experiment with the `300` argument. If compiler goes beyond the specified millisecond limit, Xcode will warn you and show you the offending place.
+Subistitute the `300` argument with what suits you best. If compiler goes beyond the specified millisecond limit, Xcode will warn you and show you the offending place.
 
 * Use Build Time Analyzer. It is a macOS app that shows you a break down of Swift build times. [Build Time Analyzer for Swift](https://github.com/RobertGummesson/BuildTimeAnalyzer-for-Xcode)
 
@@ -36,8 +36,8 @@ How to improve build times? The easiest way:
 
 * Don't use `+` to concatenate a strings.
 * Precompute. Never do computations directly from the if-else conditions.
-* Dependencies within a module are per-file. Dependencies across targets are for the entire target.
 
+* Dependencies within a module are per-file. Dependencies across targets are for the entire target. Dependencies determine what areas of code the system builds.
 * Incremental Builds are file-based. Unrelated changes outside function bodies can still result in rebuilding. If you change the function bodies then other files won't be recompiled, as changes in function bodies do not affect the file's **interface**.
 * Limit your objective-C/Swift **interface**. Keep your generated header minimal. User `private` when possible:
     * Make `IBOutlet private` and `IBAction private`.
@@ -48,7 +48,7 @@ Depending on your project and your needs, your can do more. Be sure to watch:
 * [Building Faster in Xcode - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/408)
 * [Behind the Scenes of the Xcode Build Process - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/415)
 
-## Sources
+## References
 
 * [Building Faster in Xcode - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/408)
 * [Behind the Scenes of the Xcode Build Process - WWDC 2018 - Videos - Apple Developer](https://developer.apple.com/videos/play/wwdc2018/415)
