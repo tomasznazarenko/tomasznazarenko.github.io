@@ -21,7 +21,7 @@ Third, calculate PPI to see if a display is optimal. Going for non-retina the 10
 
 Next time your company plans to buy new monitors, think of giving a hint to decision-makers that if available on the market the 16:10 ratio is the way to go.
 
-## Sources
+## References
 
 * [Mac external displays for designers and developers](https://bjango.com/articles/macexternaldisplays/)
 * [DPI Calculator / PPI Calculator](https://www.sven.de/dpi/)
