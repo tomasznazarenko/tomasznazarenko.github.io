@@ -101,7 +101,7 @@ reset your HEAD pointer to a previous commit
 
 `git rebase -i --autosquash<commit>` fixup commit. You want to change an older commit for example to add something. Make the change, then `git add <filename>`, then `git commit --fixup <commit>` feeding the commit we want to add the change to; then `git rebase -i --autosquash<commit>` and git should prepare the rebase already for us with right keyword and order.
 
-`git rebase -i <commit>` split a specific commit into separate commits. We feed a parent-commit as a base-commit. Mark commit with edit. Then when git stops at the revision. Now use `git reset HEAD~1` now you have actual changes to work with. Now stage one file and commit it, then stace another file and commit it. Then when you want to complete `git rebase --continue`
+`git rebase -i <commit>` split a specific commit into separate commits. We feed a parent-commit as a base-commit. Mark commit with edit. Then when git stops at the revision. Now use `git reset HEAD~1` now you have actual changes to work with. Now stage one file and commit it, then stage another file and commit it. Then when you want to complete `git rebase --continue`
 
 ## How to solve merge conflicts
 
