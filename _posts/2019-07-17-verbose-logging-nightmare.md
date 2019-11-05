@@ -7,9 +7,7 @@ tags:
   - logging
 ---
 
-Verbose logging is as useless as having none. I was in a mobile app project where logs littered the Xcode console frequently.  It required extraordinary focus to sift through them.
-
-Application life cycle events and taps unleashed print-out hell. The console showed server responses mixed with Xcode warnings. Various methods spat custom messages. Many were vague old debugging remnants.
+Verbose logging is as useless as having none. I was in a mobile app project where logs littered the Xcode console. To sift through the logs required extraordinary focus. Application life cycle events and taps unleashed print-out hell. The console showed server responses mixed with Xcode warnings. Various methods spat custom messages. Many were vague old debugging remnants.
 
 An app with a dirty log might be a sign of trouble ahead. How to know if something goes wrong in the development or production environment, and how to deal with it? Maybe our colleague at the back end monitors the system or we do it by ourselves. Either way, the logs are probably part of the monitoring.
 
@@ -26,5 +24,6 @@ A cluttered log may show that your app will be hard to control once it reaches p
 * Have about one info log message for every significant application event.
 * Delete obsolete logs.
 
-## Sources:
+## References
+
 * [Ring buffer](https://en.wikipedia.org/wiki/Circular_buffer)
