@@ -45,7 +45,7 @@ Examples of bad Singleton candidates are the objects not mandatory for a system 
 
 Singletons may damage our system design and testability if we access the concrete singleton instance directly. To escape the tight coupling we can use dependency inversion. By hiding the third-party dependency behind an interface we can keep the app modules agnostic about the implementation details.
 
-## Sources
+## References
 
 * [Singleton pattern - Wikipedia](https://en.wikipedia.org/wiki/Singleton_pattern)
 * [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.goodreads.com/book/show/85009.Design_Patterns)
