@@ -1,7 +1,7 @@
 ---
 title: "16:10 ratio monitors"
 categories:
-  - Hardware
+  - hardware
 ---
 Monitors with a multimedia 16:9 ratio classifies itself to the growing pool of media consuming or video editing hardware. Even game developers optimize for 16:9 so that players can play the games on consoles plugged to TVs.
 
