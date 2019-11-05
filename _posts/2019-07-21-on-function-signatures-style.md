@@ -4,19 +4,18 @@ excerpt_separator: "<!--more-->"
 categories:
   - software-engineering
 tags:
-  - quality
-  - team
+  - refactoring
 ---
 
-Teams have to agree on coding style. Developers have discussed naming and styling functions on the Internet and in the books. I am sure you hold your preferences. Yet, having studied linguistics as a hobby for a short time, and just as an avid book reader, I offer you a perspective that may help you write more readable code, allowing your future self and your colleagues find and grasp your code quicker.
+Teams have to agree on coding style. Developers have discussed naming and styling functions on the Internet and in the books. I am sure you hold your preferences. Yet, having studied linguistics as a hobby for a short time gave me yet another perspective on writiting readable code. Allow me to share it with you.
 
-Keep in mind that this is still a preference. If I find any better solution, I will update the post.
+Keep in mind that this is current preference. If I find any better solution, I will update the post. Here we go.
 
 We read code looking for concepts in it, and to reason easily about them. Reading lots of books, made our minds proficient in finding book-alike structured information. In code, we convey information by arranging it, like in the books.
 
 The structure usually looks like this:
 
-```
+```markdown
 Heading
   Subheading
     Body
@@ -30,12 +29,12 @@ func mixedHeadingWithSubheading(one: Int,
 
 // or
 
-func unusualTextFlow(one: Int, 
+func unusualTextFlow(one: Int,
                      two: Int) {}
 
 ```
 
-Contrary, following the book-alike structure in arranging functions signatures, makes them easier to read. Like this:
+However, following the book-alike structure in arranging functions signatures makes them easier to read. Like this:
 
 ```swift
 func inlineParametersLikeAHeading(one: Int, two: Int) { }
