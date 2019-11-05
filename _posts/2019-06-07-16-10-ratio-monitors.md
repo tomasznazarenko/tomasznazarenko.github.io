@@ -5,7 +5,7 @@ categories:
 ---
 Monitors with a multimedia 16:9 ratio classifies itself to the growing pool of media consuming or video editing hardware. Even game developers optimize for 16:9 so that players can play the games on consoles plugged to TVs.
 
-On the other hand we have monitors with 16:10 close to golden Ratio. They offer comfortable viewing for writing text or browsing documents. The 10% extra vertical pixels give better context and conmfort for business and programming.
+On the other hand we have monitors with 16:10 ratio. They offer comfortable viewing for writing text or browsing documents. The 10% extra vertical pixels give better context and conmfort for business and programming.
 
 Once worked on a 16:10 you will not want to get back to 16:9. Yet, many software houses order hundreds of multimedia-focused 16:9 ratio monitors. And those businesses hire dozens of office workers and software developers. That fact is slightly decreasing work conmfort buy forcing the employees to scroll more.
 
