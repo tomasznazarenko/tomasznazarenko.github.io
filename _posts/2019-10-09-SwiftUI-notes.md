@@ -6,7 +6,7 @@ tags:
   - swiftUI
 ---
 
-I am updating this post on regular basis. I'm sharing these notes as I am learning SwiftUI framework.
+I am updating this post on regular basis while studying SwiftUI.
 
 ## Terms
 
@@ -17,8 +17,8 @@ I am updating this post on regular basis. I'm sharing these notes as I am learni
 ## Tidbits
 
 * Limit of 10 children inside a parent actually everywhere in SwiftUI. The limit is applied to prevent overloading UI prototyping performance. Use `Group` to avoid the limitation. `ForEach` doesn’t get hit by the 10-view limit.
-* SwiftUI destroys and recreates your structs frequently, so keeping them small and simple structs is important for performance.
-* Views are a function of their state – you can show something if it reflects a value stored in your program.  Everything the user can see is just the visible representation of the structs and properties in our code.
+* SwiftUI destroys and recreates structs frequently, so keeping them small and simple structs is important for performance.
+* Views are a function of their state – you can show something if it reflects a value stored in your program. Everything the user can see is just the visible representation of the structs and properties in our code.
 
 ## Basic structure
 
@@ -47,8 +47,6 @@ struct ContentView_Previews: PreviewProvider {
 `View` comes from SwiftUI, and is the basic protocol that must be adopted by anything you want to draw on the screen – all text, buttons, images, and more are all views, including your own layouts that combine other views.
 
 `some View` means it will return something that conforms to the `View` protocol, but that extra `some` keyword adds an important restriction: it must always be the *same* kind of view being returned – you can’t sometimes return one type of thing and other times return a different type of thing. it means “one specific sort of view must be sent back from this property.”
-
-`Text("Hello World")` creates a text view using the string “Hello World”. Text views are simple pieces of static text that get drawn onto the screen, and will automatically wrap across multiple lines as needed.
 
 `ContentView_Previews` struct, which conforms to the `PreviewProvider` protocol. This piece of code won’t actually form part of your final app that goes to the App Store, but is instead specifically for Xcode to use so it can show a preview of your UI design alongside your code.
 
@@ -179,9 +177,7 @@ struct ContentView: View {
 
 ## References
 
+* [Apple SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui/tutorials)
 * [SwiftUI Apple Developer Documentation](https://developer.apple.com/documentation/swiftui)
-* [Understanding the basic structure of a SwiftUI app - a free Hacking with iOS: SwiftUI Edition tutorial](https://www.hackingwithswift.com/books/ios-swiftui/understanding-the-basic-structure-of-a-swiftui-app)
-* [Creating a form - a free Hacking with iOS: SwiftUI Edition tutorial](https://www.hackingwithswift.com/books/ios-swiftui/creating-a-form)
-* [Adding a navigation bar - a free Hacking with iOS: SwiftUI Edition tutorial](https://www.hackingwithswift.com/books/ios-swiftui/adding-a-navigation-bar)
-* [Modifying program state - a free Hacking with iOS: SwiftUI Edition tutorial](https://www.hackingwithswift.com/books/ios-swiftui/modifying-program-state)
-* [Binding state to user interface controls - a free Hacking with iOS: SwiftUI Edition tutorial](https://www.hackingwithswift.com/books/ios-swiftui/binding-state-to-user-interface-controls)
+* [Fucking SwiftUI](https://fuckingswiftui.com)
+* [Hacking with Swift Tutorial](https://www.hackingwithswift.com/books/ios-swiftui)
