@@ -17,20 +17,27 @@ Have you read it? If not, read it. Otherwise, here is a Git commands cheat sheet
 ## Local changes
 
 `git status` view changed files in your working directory
+
 `git diff` view changes to tracked files
+
 `git diff --patience`
+
 `git diff --histogram`
+
 `git diff --word-diff -unified=10`
 
 `git add .` add all current changes to the next commit
+
 `git add -p <file>` add some changes in file to the next commit
 
-`git commit --amend --no-edit`, `git commit --amend -m „Correct commit message“` change the last commit. This keeps all of your related changes bundled together in one commit, so you can understand it more quickly when you're reviewing it later. Don't amend published commits!)
+`git commit --amend --no-edit`, `git commit --amend -m „Correct commit message“` change the last commit. This keeps all of your related changes bundled together in one commit, so you can understand it more quickly when you're reviewing it later. Don't amend published commits!
 
 ## Commit history
 
 `git log` show all commits, starting with newest
+
 `git log -p <file>` show changes over time for a specific file
+
 `git log -- <file>` show commits with only a specific file
 
 `git blame <file>` who changed what and when in a `<file>`
@@ -42,7 +49,9 @@ Have you read it? If not, read it. Otherwise, here is a Git commands cheat sheet
 `git branch -av` list all existing branches
 
 `git checkout <branch>` switch HEAD branch
+
 `git branch <new-branch>` create a new branch based on your current HEAD
+
 `git checkout --track <remote/branch>` create a new tracking branch based on a remote branch
 
 `git branch -d <branch>` delete a local branch
@@ -52,27 +61,37 @@ Have you read it? If not, read it. Otherwise, here is a Git commands cheat sheet
 ## Update and publish
 
 `git remote -v` list all currently configured remotes
+
 `git remote show <remote>` show information about a remote
+
 `git remote add <shortname> <url>` add new remote repository, named `<remote>`
 
 `git fetch <remote>` download all changes from `<remote>`, but don‘t integrate into HEAD
 
 `git pull <remote> <branch>` download changes and directly merge/integrate into HEAD
+
 `git branch -dr <remote/branch>` delete branch on the remote
+
 `git push --tags` publish your tags
 
 ## Merge, cherry-pick, and rebase
 
 `git merge <branch>` merge `<branch>` into your current HEAD
 
-`git rebase foo bar` - in other words, 'git rebase' (in this form) is a shortcut that lets you pick up entire sections of a repository and move them somewhere else foo on bar. When I use **git rebase**, I *(almost)* always give it two arguments: the name of the place I want to start from, and the name of the place I want to end up. Or, to put it another way, I tell rebase the sequence of events I want it to create, **from left to right**: **git rebase first_this then_this**
-`git rebase <branch>` rebase your current HEAD onto `<branch>` (don't rebase published commits!)
+`git rebase foo bar` - in other words, 'git rebase' (in this form) is a shortcut that lets you pick up entire sections of a repository and move them somewhere else foo on bar. When I use git rebase, I *(almost)* always give it two arguments: the name of the place I want to start from, and the name of the place I want to end up. Or, to put it another way, I tell rebase the sequence of events I want it to create, from left to right: `git rebase first_this then_this`.
+
+`git rebase <branch>` rebase your current HEAD onto `<branch>`. Don't rebase published commits!
+
 `git rebase --abort` abort a rebase
+
 `git rebase --continue` continue after resolving conflicts
 
 use your editor to manually solve conflicts (after resolving) mark file as resolved
+
 `git add <resolved-file>`
+
 `git rm <resolved-file>`
+
 `git mergetool` use your configured merge tool to solve conflicts
 
 `git cherry-pick` given one or more existing commits, apply the change each one introduces, recording a new commit for each.
