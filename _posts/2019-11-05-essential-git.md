@@ -99,15 +99,21 @@ use your editor to manually solve conflicts (after resolving) mark file as resol
 ## Undoing things
 
 `git checkout HEAD <file>` discard local changes in a specific file ex. restore deleted file
+
 `git checkout --patch <file>` discard chunk changes
+
 `git checkout <commit> -- <file>` restore single file in the previous version
 
 `git revert <commit>` revert a commit (by producing a new commit with contrary changes)
 
 reset your HEAD pointer to a previous commit
+
 `git reset --hard <commit>`, `git reset --hard HEAD`,  ...and discard all changes since then
+
 `git reset --hard <newbar>` when on bar branch forcibly move the "bar" branch pointer so that it pointed to the same place as the "newbar" branch (and, thanks to the --hard flag, update my working directory to match the new location)
+
 `git reset <commit>` ...and preserve all changes as unstaged changes
+
 `git reset --keep <commit>` ...and preserve uncommitted local changes
 
 `git reflog` - recover a deleted branch or commit. When you were too quick deleting a branch or rolling back to an old commit, take a look at journal that protocols every movement of your project‘s HEAD pointer. Then `git reset --hard <commit-from-reflog>`
