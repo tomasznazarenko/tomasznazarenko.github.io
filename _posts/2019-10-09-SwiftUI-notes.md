@@ -13,6 +13,7 @@ I am updating this post on regular basis while studying SwiftUI.
 * modifier: modifiers are regular methods with one small difference: they always return a new instance of whatever you use them on.
 * property wrapper:  a special attribute we can place before our properties, example: `@State`
 * two-way binding: tells Swift that it should read the value of the property but also write it back as any changes happen. We bind a view that it shows the value of our property, but we also bind it so that any changes to the view also update the property. In Swift, we mark these two-way bindings with `$`.
+* state. State is a value, or a set of values, that can change over time, and that affects a view’s behavior, content, or layout. You use a property with the `@State` attribute to add state to a view.
 
 ## Tidbits
 
@@ -20,7 +21,27 @@ I am updating this post on regular basis while studying SwiftUI.
 * SwiftUI destroys and recreates structs frequently, so keeping them small and simple structs is important for performance.
 * Views are a function of their state – you can show something if it reflects a value stored in your program. Everything the user can see is just the visible representation of the structs and properties in our code.
 
-`Option+Cmd+P` shortcuts does the same as clicking Resume in the preview. Previews use an Xcode feature called `the canvas`, which is usually visible directly to the right of your code. You can customize the preview code if you want, and they will only affect the way the canvas shows your layouts – it won’t change the actual app that gets run.
+## Errors
+
+* `Option+Cmd+P` shortcuts does the same as clicking Resume in the preview. Previews use an Xcode feature called "the canvas", which is usually visible directly to the right of your code. You can customize the preview code if you want, and they will only affect the way the canvas shows your layouts – it won’t change the actual app that gets run.
+* The errors shown by SwiftUI can mislead you. Running the app in the simulator helps to unveil the cuase.
+
+* Swift UI Error: `Unable to infer complex closure return type; add explicit type to disambiguate` can be solved by adding explicit closure return type. Example:
+
+```swift
+struct LandmarkList: View {
+    var body: some View {
+        NavigationView {
+            List(landmarkData) { (landmark) -> NavigationLink<LandmarkRow, LandmarkDetail> in
+                NavigationLink(destination: LandmarkDetail(landmark: landmark)) {
+                    LandmarkRow(landmark: landmark)
+                }
+            }
+            .navigationBarTitle(Text("Landmarks"))
+        }
+    }
+}
+```
 
 ## References
 
@@ -180,9 +201,20 @@ struct ContentView: View {
 }
 ```
 
+ForEach operates on collections the same way as the list, which means you can use it anywhere you can use a child view, such as in stacks, lists, groups, and more. When the elements of your data are simple value types — like the strings you’re using here — you can use \.self as key path to the identifier.
+
+Place a ForEach instance inside a List or other container type to create a dynamic list.
+
+## If statements
+
+In SwiftUI blocks, you use if statements to conditionally include views.
+
 ## Lists
 
 Lists work with identifiable data. You can make your data identifiable in one of two ways:
 
-* by passing along with your data a key path to a property that uniquely identifies each element, or
+* by passing along with your data a key path to a property that uniquely identifies each element
 * by making your data type conform to the Identifiable protocol.
+
+Q: Which type do you use to make rows of a List tappable to navigate to another view?
+A: `NavigationLink` - provide the destination view and the content of a row when you declare a NavigationLink.
