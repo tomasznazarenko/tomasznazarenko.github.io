@@ -20,6 +20,15 @@ I am updating this post on regular basis while studying SwiftUI.
 * SwiftUI destroys and recreates structs frequently, so keeping them small and simple structs is important for performance.
 * Views are a function of their state – you can show something if it reflects a value stored in your program. Everything the user can see is just the visible representation of the structs and properties in our code.
 
+`Option+Cmd+P` shortcuts does the same as clicking Resume in the preview. Previews use an Xcode feature called `the canvas`, which is usually visible directly to the right of your code. You can customize the preview code if you want, and they will only affect the way the canvas shows your layouts – it won’t change the actual app that gets run.
+
+## References
+
+* [Apple SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui/tutorials)
+* [SwiftUI Apple Developer Documentation](https://developer.apple.com/documentation/swiftui)
+* [Fucking SwiftUI](https://fuckingswiftui.com)
+* [Hacking with Swift Tutorial](https://www.hackingwithswift.com/books/ios-swiftui)
+
 ## Basic structure
 
 `ContentView.swift` contains the initial user interface (UI) for your program.
@@ -49,10 +58,6 @@ struct ContentView_Previews: PreviewProvider {
 `some View` means it will return something that conforms to the `View` protocol, but that extra `some` keyword adds an important restriction: it must always be the *same* kind of view being returned – you can’t sometimes return one type of thing and other times return a different type of thing. it means “one specific sort of view must be sent back from this property.”
 
 `ContentView_Previews` struct, which conforms to the `PreviewProvider` protocol. This piece of code won’t actually form part of your final app that goes to the App Store, but is instead specifically for Xcode to use so it can show a preview of your UI design alongside your code.
-
-These previews use an Xcode feature called `the canvas`, which is usually visible directly to the right of your code. You can customize the preview code if you want, and they will only affect the way the canvas shows your layouts – it won’t change the actual app that gets run.
-
-`Option+Cmd+P` shortcuts does the same as clicking Resume.
 
 ## Forms
 
@@ -175,9 +180,9 @@ struct ContentView: View {
 }
 ```
 
-## References
+## Lists
 
-* [Apple SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui/tutorials)
-* [SwiftUI Apple Developer Documentation](https://developer.apple.com/documentation/swiftui)
-* [Fucking SwiftUI](https://fuckingswiftui.com)
-* [Hacking with Swift Tutorial](https://www.hackingwithswift.com/books/ios-swiftui)
+Lists work with identifiable data. You can make your data identifiable in one of two ways:
+
+* by passing along with your data a key path to a property that uniquely identifies each element, or
+* by making your data type conform to the Identifiable protocol.
