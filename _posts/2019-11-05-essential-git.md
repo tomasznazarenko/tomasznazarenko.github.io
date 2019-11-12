@@ -181,4 +181,5 @@ Git lets you pick from a lot of different work- flows: long-running branches, to
 * [How to: Create a git Merge Conflict](https://jonathanmh.com/how-to-create-a-git-merge-conflict/)
 * [Learn Version Control with Git for Free](https://www.git-tower.com/learn/git/ebook/en/command-line/basics/what-is-version-control#start)
 * [A Visual Git Reference](http://marklodato.github.io/visual-git-guide/index-en.html)
+* [Git Fetch and Merge](https://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 * [Git Fetch Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/syncing/git-fetch)
