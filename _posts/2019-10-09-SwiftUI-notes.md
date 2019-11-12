@@ -12,21 +12,28 @@ I am updating this post on regular basis while studying SwiftUI.
 
 * modifier: modifiers are regular methods with one small difference: they always return a new instance of whatever you use them on.
 * property wrapper:  a special attribute we can place before our properties, example: `@State`
+* binding. A binding acts as a reference to a mutable state. It’s a value and a way to change that value.
 * two-way binding: tells Swift that it should read the value of the property but also write it back as any changes happen. We bind a view that it shows the value of our property, but we also bind it so that any changes to the view also update the property. In Swift, we mark these two-way bindings with `$`.
 * state. State is a value, or a set of values, that can change over time, and that affects a view’s behavior, content, or layout. You use a property with the `@State` attribute to add state to a view.
+* observable object. A observable object is a custom object for your data that can be bound to a view from storage in SwiftUI’s environment. SwiftUI watches for any changes to observable objects that could affect a view, and displays the correct version of the view after a change.
+* The @EnvironmentObject attribute. You use this attribute in views that are lower down in the view hierarchy to receive data from views that are higher up.
+* The `environmentObject(_:)` modifier. You apply this modifier so that views further down in the view hierarchy can read data objects passed down through the environment.
 
 ## Tidbits
 
 * Limit of 10 children inside a parent actually everywhere in SwiftUI. The limit is applied to prevent overloading UI prototyping performance. Use `Group` to avoid the limitation. `ForEach` doesn’t get hit by the 10-view limit.
 * SwiftUI destroys and recreates structs frequently, so keeping them small and simple structs is important for performance.
 * Views are a function of their state – you can show something if it reflects a value stored in your program. Everything the user can see is just the visible representation of the structs and properties in our code.
+* You can pin a preview to the canvas when you’re developing and refining an animation. It will keep a particular preview open while you switch between different files in Xcode. If you don’t pin a preview, the canvas switches to display previews in the file you just opened.
+* To debug views and to make `print()` calls work, you should first right-click on the play button in the preview canvas and choose “Debug Preview”.
+* SwiftUI content views must return precisely one `View` we want to show. When we want more than one view on screen at a time we need to tell SwiftUI how to arrange them.
 
 ## Errors
 
 * `Option+Cmd+P` shortcuts does the same as clicking Resume in the preview. Previews use an Xcode feature called "the canvas", which is usually visible directly to the right of your code. You can customize the preview code if you want, and they will only affect the way the canvas shows your layouts – it won’t change the actual app that gets run.
-* The errors shown by SwiftUI can mislead you. Running the app in the simulator helps to unveil the cuase.
+* The errors shown by SwiftUI can mislead you. Running the app in the simulator helps to unveil the cuase. Oftentimes you can ignore Xcode errors, as project builds and runs fine.
 
-* Swift UI Error: `Unable to infer complex closure return type; add explicit type to disambiguate` can be solved by adding explicit closure return type. Example:
+* Swift UI Error: `Unable to infer complex closure return type; add explicit type to disambiguate` can sometimes be solved by adding explicit closure return type. Example:
 
 ```swift
 struct LandmarkList: View {
@@ -49,6 +56,14 @@ struct LandmarkList: View {
 * [SwiftUI Apple Developer Documentation](https://developer.apple.com/documentation/swiftui)
 * [Fucking SwiftUI](https://fuckingswiftui.com)
 * [Hacking with Swift Tutorial](https://www.hackingwithswift.com/books/ios-swiftui)
+
+## Todo
+
+[ ] How to scroll `TextField`s up when keyboard is shown so that textfields are not obscured. [StackOverflow-Sample-1](https://stackoverflow.com/questions/56716311/how-to-show-complete-list-when-keyboard-is-showing-up-in-swiftui)
+
+## Arranging views
+
+You can use stacks: Horizontal (HStack), vertical (VStack) and depth-based (ZStack) that places child views so they overlap.
 
 ## Basic structure
 
@@ -109,7 +124,7 @@ struct ContentView: View {
 }
 ```
 
-In fact, you can have as many things inside a form as you want, although if you intend to add more than 10 SwiftUI requires that you place things in `Group`s to avoid problems.
+You can have as many things inside a form as you want, although if you intend to add more than 10 SwiftUI requires that you place things in `Group`s to avoid problems.
 
 `Group` is an affordance for grouping view content. Groups don’t actually change the way your user interface looks, they just let us work around SwiftUI’s limitation of ten child views inside a parent.
 
@@ -218,3 +233,46 @@ Lists work with identifiable data. You can make your data identifiable in one of
 
 Q: Which type do you use to make rows of a List tappable to navigate to another view?
 A: `NavigationLink` - provide the destination view and the content of a row when you declare a NavigationLink.
+
+To combine static and dynamic views in a list, or to combine two or more different groups of dynamic views, use the ForEach type instead of passing your collection of data to List.
+
+## Drawing Paths and Shapes
+
+You use GeometryReader to dynamically draw, position, and size views instead of hard-coding numbers that might not be correct when you reuse a view somewhere else in your app, or on a different-sized display. GeometryReader dynamically reports size and position information about the parent view and the device, and updates whenever the size changes; for example, when the user rotates their iPhone.
+
+ZStack overlays views on top of each other.
+
+## Animating Views and Transitions
+
+Q: How do you prevent an animation from applying to certain modifiers in a sequence of modifiers?
+
+Pass nil to the animation(_:) modifier.
+
+```swift
+Image(systemName: "chevron.right.circle")
+    .imageScale(.large)
+    .rotationEffect(.degrees(showDetail ? 90 : 0))
+    .animation(nil)
+    .scaleEffect(showDetail ? 1.5 : 1)
+    .padding()
+    .animation(.spring())
+```
+
+You can animate rotations that you create using the rotationEffect(_:) modifier.
+
+Q: What’s a quick way to test how an animation behaves during interruptions like state changes?
+
+Adjust the duration of the animation so that it runs long enough that you can observe and tune its fine details.
+Making animations take longer is a quick and easily reversible change that’s effective for iterating on animations.
+
+## View Builders
+
+The concept of view builders is used in NaviagtionLink in a following way:
+
+```swift
+NavigationLink(destination: LandmarksView(landmark: landmark)) {
+    LandmarkCard(landmark: landmark)
+}
+```
+
+You pass view builder closure alongside destination.
