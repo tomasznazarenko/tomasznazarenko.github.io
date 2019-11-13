@@ -23,5 +23,6 @@ Next time your company plans to buy new monitors, think of giving a hint to deci
 
 ## References
 
+* [Retina Monitors](https://www.caseyliss.com/2017/5/17/retina-monitors)
 * [Mac external displays for designers and developers](https://bjango.com/articles/macexternaldisplays/)
 * [DPI Calculator / PPI Calculator](https://www.sven.de/dpi/)
