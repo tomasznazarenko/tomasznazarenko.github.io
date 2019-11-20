@@ -24,7 +24,7 @@ Have you read it? If not, read it. Otherwise, here is a Git commands cheat sheet
 
 `git diff --histogram`
 
-`git diff --word-diff -unified=10`
+`git diff --word-diff --unified=10`
 
 `git add .` add all current changes to the next commit
 
@@ -128,6 +128,22 @@ reset your HEAD pointer to a previous commit
 
 `git rebase -i <commit>` split a specific commit into separate commits. We feed a parent-commit as a base-commit. Mark commit with edit. Then when git stops at the revision. Now use `git reset HEAD~1` now you have actual changes to work with. Now stage one file and commit it, then stage another file and commit it. Then when you want to complete `git rebase --continue`
 
+### How to recover from a git hard reset
+
+ If you have not staged your files, as far as I know bad luck, sorry. Otherwise if you did a hard reset after adding files to be committed but before committing them, then you migh recover them using git File System Check to recover blobs.
+
+1. Run `git fsck` to get a list of dangling blobs. Hidden in these dangling blobs are your files. Those blobs are your files without extensions.
+
+2. Run `git fsck --lost-found` to save the blobs to an invisible path: `.git/lost-found/other`
+
+3. Run the following script to take all the blobs from the invisble path and save them as visible `.txt` files in your project folder:
+
+    ```zsh
+    for blob in $(git fsck --lost-found | awk ‘$2 == “blob” { print $3 }’); do git cat-file -p $blob > $blob.txt; done
+    ```
+
+4. Recover your files by searching for key words within the content of the files or by changing the extensions. This step varies depending on your case. The end.
+
 ## How to solve merge conflicts
 
 when you get a conflict message then type `git status` to see what are the unmerged paths. Then use the editor of your choice, or the one you have configured in git by typing `git mergetool` . After that, save and quit the tool. After solving all conflicts make a regular commit `git commit`
@@ -183,3 +199,4 @@ Git lets you pick from a lot of different work- flows: long-running branches, to
 * [A Visual Git Reference](http://marklodato.github.io/visual-git-guide/index-en.html)
 * [Git Fetch and Merge](https://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 * [Git Fetch Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/syncing/git-fetch)
+* [How to recover from a git hard reset](https://medium.com/@CarrieGuss/how-to-recover-from-a-git-hard-reset-b830b5e3f60c)
