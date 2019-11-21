@@ -52,6 +52,7 @@ struct LandmarkList: View {
 
 ## References
 
+* [SwiftUI Essentials](https://developer.apple.com/videos/play/wwdc2019/216)
 * [Apple SwiftUI Tutorials](https://developer.apple.com/tutorials/swiftui/tutorials)
 * [SwiftUI Apple Developer Documentation](https://developer.apple.com/documentation/swiftui)
 * [Fucking SwiftUI](https://fuckingswiftui.com)
@@ -160,7 +161,9 @@ NavigationView {
 }
 ```
 
-## State handling
+## Bindings
+
+### `@State`
 
 ```swift
 struct ContentView: View {
@@ -176,11 +179,18 @@ struct ContentView: View {
 
 You can use `@State` property wrapper to hold a state in a struct. `@State` is specifically designed for simple properties that are stored in one view. As a result, Apple recommends we add **private** access control to those properties.
 
-There are several ways of storing program state in SwiftUI, and you’ll learn all of them.
+There are several ways of storing program state in SwiftUI.
 
-### Binding state to user interface
+### Two way binding
 
-The problem is that Swift differentiates between “show the value of this property here” and “show the value of this property here, *but write any changes back to the property*.”
+When SwiftUI sees a property marked with this attribute, it automatically creates and manages persistent state behind the scenes and then exposes the value of that state through this property.
+ If we just want to read or write to the data in our state, it's really easy. We can just read or write to a property directly.
+
+ However, for example stepper also needs to be able to edit the state when its buttons are tapped. And we use this dollar sign prefix to indicate that we should pass a binding instead of just passing a read-only value.
+
+ A binding is a kind of managed reference that allows one view to edit the state of another view.
+
+Swift differentiates between “show the value of this property here” and “show the value of this property here, *but write any changes back to the property*.”  This is what’s called a *two-way binding*.
 
 ```swift
 struct ContentView: View {
@@ -195,34 +205,19 @@ struct ContentView: View {
 }
 ```
 
-In the case of our text field, Swift needs to make sure whatever is in the text is also in the name property, so that it can fulfill its promise that our views are a function of their state – that everything the user can see is just the visible representation of the structs and properties in our code. This is what’s called a *two-way binding*.
-
-## Creating views in a loop with `ForEach`
-
-`ForEach`: a structure that computes views on demand from an underlying collection of of identified data This can loop over arrays and ranges, creating as many views as needed.
+## Picker
 
 ```swift
-struct ContentView: View {
-    let options = ["Option1", "Option2", "Option3"]
-    @State private var selectedOption = "Option1"
-
-    var body: some View {
-        Picker("Select your option", selection: $selectedOption) {
-            ForEach(0 ..< options.count) {
-                Text(self.options[$0])
+Form {
+    Section(header: Text("Avocado Toast")) {
+        Picker(selection: $order.spread, label: Text("Spread")) {
+            ForEach(Spread.allCases) { spread in
+                Text(spread.name).tag(spread)
             }
         }
     }
 }
 ```
-
-ForEach operates on collections the same way as the list, which means you can use it anywhere you can use a child view, such as in stacks, lists, groups, and more. When the elements of your data are simple value types — like the strings you’re using here — you can use \.self as key path to the identifier.
-
-Place a ForEach instance inside a List or other container type to create a dynamic list.
-
-## If statements
-
-In SwiftUI blocks, you use if statements to conditionally include views.
 
 ## Lists
 
@@ -267,12 +262,39 @@ Making animations take longer is a quick and easily reversible change that’s e
 
 ## View Builders
 
-The concept of view builders is used in NaviagtionLink in a following way:
+You can see the content parameter is defined as a closure but marked with the `@ViewBuilder` attribute.
+The Swift Compiler knows how to translate a closure marked by this attribute into a new closure that returns a single view representing all of the contents within for example our stack.
+
+## Modifiers
+
+ You should try to push your conditions into your modifiers as much as possible. So instead if-ology try to see if you can use a modifier.
+ Because that will help SwiftUI detect those changes and give you better animations.
+
+## ForEach
+
+`ForEach` takes a collection of data and a ViewBuilder that maps each data item into its own view. But unlike `List`, `ForEach` doesn't add any visual effects of its own. Instead, it just adds its own contents to its container.
+
+`ForEach`: a structure that computes views on demand from an underlying collection of of identified data This can loop over arrays and ranges, creating as many views as needed.
 
 ```swift
-NavigationLink(destination: LandmarksView(landmark: landmark)) {
-    LandmarkCard(landmark: landmark)
+struct ContentView: View {
+    let options = ["Option1", "Option2", "Option3"]
+    @State private var selectedOption = "Option1"
+
+    var body: some View {
+        Picker("Select your option", selection: $selectedOption) {
+            ForEach(0 ..< options.count) {
+                Text(self.options[$0])
+            }
+        }
+    }
 }
 ```
 
-You pass view builder closure alongside destination.
+`ForEach` operates on collections the same way as the list, which means you can use it anywhere you can use a child view, such as in stacks, lists, groups, and more. When the elements of your data are simple value types — like the strings you’re using here — you can use \.self as key path to the identifier.
+
+Place a `ForEach` instance inside a List or other container type to create a dynamic list.
+
+## If statements
+
+In SwiftUI blocks, you use `if` statements to conditionally include views.
